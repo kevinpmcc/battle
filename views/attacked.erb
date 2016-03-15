@@ -1,6 +1,5 @@
-<% $game.attack($player_2) %>
 <div>
-  <%= @player_2_name %> yelping in pain! Why you so evil???
+  <%= @game.player_2.name %> yelping in pain! Why you so evil???
 </div>
 
 <div>
@@ -8,5 +7,5 @@
 </div>
 
 <div>
-  <%= $player_2.name %>: <%= $player_2.hit_points %>HP
+  <%= @game.player_2.name %>: <%= @game.player_2.hit_points %>HP
 </div>

@@ -1,14 +1,8 @@
 class Game
-  def initialize(player_class)
-    @player_class = player_class
-  end
-
-  def add_player_1(name)
-    @player_1 = @player_class.new(name)
-  end
-
-  def add_player_2(name)
-    @player_2 = @player_class.new(name)
+  attr_reader :player_1, :player_2
+  def initialize(player_1, player_2)
+    @player_1 = player_1
+    @player_2 = player_2
   end
 
   def attack(player)
