@@ -1,6 +1,7 @@
 require './app'
+require 'spec_helper'
 
-feature "Enter names" do
+RSpec.feature "Enter names" do
   scenario "User can enter a name" do
     visit '/'
     fill_in "player_1_name", with: "Kevin"
