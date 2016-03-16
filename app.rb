@@ -21,9 +21,11 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-  #  @player_2 = $player_2
-    $game.attack($game.player_2)
-    "#{$game.player_2.name} was attacked"
+    
+    $game.attack
+    message = "#{$game.player.name} was attacked"
+    $game.change_turn
+    message
   end
 
   # start the server if ruby file executed directly
