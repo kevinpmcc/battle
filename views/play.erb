@@ -1,8 +1,14 @@
+<h2>
+  <%= $message %>
+</h2> 
+
 <h1>
   <%= $game.player_1.name %> vs. <%= $game.player_2.name %>
 </h1>
-<%= $game.player_2.name%>: 60HP
+<%= $game.player_1.name %>: <%= $game.player_1.hp %>HP
+<%= $game.player_2.name %>: <%= $game.player_2.hp %>HP
 
-<form action='/attack'>
-  <input type='submit' value="Attack <%=$game.player_2.name%>">
+<form action='/attack' method='post'>
+  <input type='submit' value="Attack <%= $game.player.name %>">
 </form>
+

@@ -13,19 +13,21 @@ class Battle < Sinatra::Base
     player_1 = Player.new(params[:player_1_name])
     player_2 = Player.new(params[:player_2_name])
     $game = Game.new(player_1, player_2)
+    $message = nil
     redirect '/play'
   end
 
   get '/play' do
-    erb(:play)
+    $message
+    erb(:play) 
   end
 
-  get '/attack' do
+  post '/attack' do
     
     $game.attack
-    message = "#{$game.player.name} was attacked"
+    $message = "#{$game.player.name} was attacked"
     $game.change_turn
-    message
+    redirect '/play'
   end
 
   # start the server if ruby file executed directly
