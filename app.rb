@@ -19,6 +19,11 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
+  get '/attack' do
+    @player_2_name = session[:player_2_name]
+    "#{@player_2_name} was attacked"
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
