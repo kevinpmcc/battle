@@ -1,4 +1,3 @@
-require 'capybara'
 require 'spec_helper'
 
 feature "name entry" do
