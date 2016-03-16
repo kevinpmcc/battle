@@ -10,4 +10,8 @@ class Player
   def receive_attack
     @hp -= 6
   end
+
+  # def attack opponent
+  #   opponent.receive_attack
+  # end
 end
