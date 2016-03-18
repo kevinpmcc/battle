@@ -1,4 +1,7 @@
 require 'sinatra/base'
+require './lib/game'
+require './lib/player'
+
 # require_relative 'player'
 
 class Battle < Sinatra::Base
@@ -10,10 +13,9 @@ class Battle < Sinatra::Base
   enable :sessions
 
   post '/names' do
-    $dino_1_name = params[:first_name]
-    $dino_2_name = params[:second_name]
-    $player_1 = Player.new($dino_1_name)
-    $player_2 = Player.new($dino_2_name)
+    player_1 = Player.new(params[:first_name])
+    player_2 = Player.new(params[:second_name])
+    $game = Game.new(player_1, player_2)
     redirect '/play'
   end
 
@@ -22,7 +24,7 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    $player_2.reduce_hp
+    $game.attack_player($game.player_2)
     erb(:attack)
   end
   # start the server if ruby file executed directly
