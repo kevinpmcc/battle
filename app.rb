@@ -20,7 +20,9 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
-
+  get '/attack' do
+    "You attacked Brian, the dinosaur"
+  end 
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
